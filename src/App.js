@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 // Importamos los componentes personalizados
 import Initial from './components/Initial/';
-import Formulario from './components/Formulario/'
+import Formulario from './components/Formulario/';
+import Listado from './components/Listado/';
 
 function App() {
   // Definimos los state
@@ -40,7 +41,9 @@ function App() {
 
                   </div>
                   <div className="one-half column">
-                    2
+                    <Listado
+                      gastos = { gastos }
+                    />
                 </div>
                 </div>
               )
