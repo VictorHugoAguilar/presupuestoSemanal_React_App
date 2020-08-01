@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+// Importamos propTypes para documentar la aplicación
+import PropTypes from 'prop-types';
 import shortid from 'shortid';
 // Importamos los componentes personalizados
 import Error from '../Error/';
-
-const Formulario = ({addNuevoGasto}) => {
+// SFC
+const Formulario = ({setGasto, setAddGasto}) => {
     // Definir el state
     const [nombre, setNombre] = useState('');
     const [cantidad, setCantidad] = useState(0);
@@ -25,7 +27,8 @@ const Formulario = ({addNuevoGasto}) => {
             cantidad: cantidad
         }
         // Pasar el gasto al componente principal
-        addNuevoGasto(gasto);
+        setGasto(gasto);
+        setAddGasto(true);
         // resetear el form
         resetForm();
     }
@@ -72,4 +75,10 @@ const Formulario = ({addNuevoGasto}) => {
         </form>
     );
 }
+// PropType: Para Documentar la App
+Formulario.propType = {
+    setGasto : PropTypes.func.isRequired,
+    setAddGasto: PropTypes.func.isRequired
+}
+
 export default Formulario;

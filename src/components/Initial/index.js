@@ -1,8 +1,9 @@
 import React, { Fragment, useState } from 'react';
+// Importamos propTypes para documentar la aplicación
+import PropTypes from 'prop-types';
 // Importamos los componentes personalizados
 import Error from '../Error/';
-
-// Component Functional
+// SFC
 const Initial = ({setPresupuesto, setRestante, setShowEstadoInicial}) => {
     // Definir el state
     const [cantidad, setCantidad] = useState(0);
@@ -44,7 +45,6 @@ const Initial = ({setPresupuesto, setRestante, setShowEstadoInicial}) => {
                     className="u-full-width"
                     placeholder="Coloca tu presupuesto inicial"
                     onChange={setCantidadPresupuesto}
-
                 />
                 <input
                     type="submit"
@@ -54,6 +54,12 @@ const Initial = ({setPresupuesto, setRestante, setShowEstadoInicial}) => {
             </form>
         </Fragment>
     );
+}
+// PropType: Para Documentar la App
+Initial.propType = {
+    setPresupuesto: PropTypes.func.isRequired, 
+    setRestante : PropTypes.func.isRequired, 
+    setShowEstadoInicial: PropTypes.func.isRequired
 }
 
 export default Initial;
