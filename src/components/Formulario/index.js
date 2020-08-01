@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-
+import shortid from 'shortid';
 // Importamos los componentes personalizados
 import Error from '../Error/';
 
-const Formulario = () => {
+const Formulario = ({addNuevoGasto}) => {
     // Definir el state
     const [nombre, setNombre] = useState('');
     const [cantidad, setCantidad] = useState(0);
@@ -19,9 +19,13 @@ const Formulario = () => {
         }
         setError(false);
         // construir el gasto
-
-        // Pasasr eñ gasto al componente principal
-
+        const gasto = {
+            id: shortid.generate(),
+            nombre: nombre,
+            cantidad: cantidad
+        }
+        // Pasar el gasto al componente principal
+        addNuevoGasto(gasto);
         // resetear el form
         resetForm();
     }
